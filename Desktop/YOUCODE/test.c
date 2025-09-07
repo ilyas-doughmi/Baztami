@@ -1,26 +1,35 @@
-#include <stdio.h>
-#include <string.h>
-
-int main(){
-    int array[4] = {1,2,3,4};
-    int i = 0;
-    int last = 0;
-    int array2[4];  
-    int count = 0;
-
-    for(i = 0;i < 4 ; i++){
-        if(last == i){
-            printf("rah drt continue %d %d\n",i,last);
-            last++;
-            continue;
-        }
-        else{
-            printf("Madrtch continue f %d %d\n",i,last);
-            count++;
-            last++;
-
+#include<stdio.h>
+void majiscule(){
+    char x[200] ="hello world";
+    int i =0;
+    while(x[i] != '\0'){
+        if(x[i] == ' '){
+            printf(" ");
+            i++;
+        }else {
+            printf("%c",x[i] - 32);
+            i++;
         }
     }
-
-    printf("\ncount: %d",count);
+}
+void miniscule(char x[]){
+    
+    int i =0;
+    while(x[i] != '\0'){
+        if(x[i] == ' '){
+            printf(" ");
+            i++;
+        }else {
+            printf("%c",x[i] + 32);
+            i++;
+        }
+    }
+}
+int main()
+{
+    char x[200];
+    printf("text : ");
+    fgets(x,sizeof(x),stdin);
+    miniscule(x);
+    return 0;
 }
