@@ -136,7 +136,7 @@ void deposit(){
         printf("%d Added Successfully\n",newmoney);
     }
     else{
-        printf("NSAB NTA AW9\n");
+        printf("You got it wrong\nGoing to Logout\n");
         printf("You Got LOGGED OUT\n");
         loginin = false;
         main();
@@ -162,11 +162,12 @@ void withdraw(){
                     acc.money[saved] -= newmoney;
             }
             else{
-                printf("SIR TKHDM AW9 RAH MA3NDK FLOSS \n");
+                printf("insufficient Amount\n");
             }
     }
     else{
-        printf("NSAB NTA AW9\n");
+                printf("You got it wrong\nGoing to Logout\n");
+
         printf("You Got LOGGED OUT\n");
         loginin = false;
         main();
