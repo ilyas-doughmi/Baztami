@@ -94,7 +94,7 @@
     <!-- add transaction modal -->
 
     <div
-      class="h-[400px] w-[600px] fixed top-50 left-140 border z-900 bg-[#F6F8F7] rounded-xl items-center flex justify-center"
+      class="h-[470px] w-[600px] fixed top-50 left-140 border z-900 bg-[#F6F8F7] rounded-xl items-center flex justify-center"
       id="popup">
       <div class="flex flex-col h-[95%] w-[95%] ">
         <div class="flex justify-between items-center content-center mt-2">
@@ -102,8 +102,8 @@
             <h1 class="text-2xl  font-semibold ml-5">Add New Transaction</h1>
           </div>
           <div>
-            <button id="">
-              <i class="fa-solid fa-xmark text-2xl text-gray-700"></i>
+            <button id="x_btn">
+              <i class="fa-solid fa-xmark text-2xl text-gray-700 hover:scale-120 cursor-pointer"></i>
 
             </button>
           </div>
@@ -114,23 +114,38 @@
             <div class="input relative mt-2 w-full ">
               <h1 class="absolute top-[17px] left-[10px] text-xl">$</h1>
               <input type="number" name="" id="transaction_amount_modal"
-                class="border border-gray-300 h-[60px] rounded-xl pl-8 w-lg text-xl" placeholder="0.00">
+                class="border border-gray-300 h-[60px] rounded-xl pl-8 w-lg text-xl" placeholder="0.00" required>
 
             </div>
+            <div class="mt-4">
+              <label class="block font-semibold mb-2">Transaction Type</label>
+              <div class="flex gap-4 items-center">
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="transaction_type" value="income" id="income_radio" class="w-5 h-5 accent-green-500">
+                  <span>Income</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="transaction_type" value="expense" class="w-5 h-5 accent-red-500">
+                  <span>Expense</span>
+                </label>
+              </div>
+            </div>
+
             <label for="transaction_amount_modal" class="font-semibold mt-3 mb-2">Description</label>
             <input type="text" name="" id="transaction_amount_modal"
-              class="border border-gray-300  h-[60px] rounded-xl pl-8 w-lg text-L   mr-2" placeholder="Eg.Games">
+              class="border border-gray-300  h-[60px] rounded-xl pl-8 w-lg text-L   mr-2" placeholder="Eg.Games"
+              required>
 
 
             <div class="flex gap-2 mt-10 ml-60">
-              <button class="bg-gray-300 text-black p-5 rounded-xl hover:bg-gray-500 cursor-pointer" id="Cancel_btn">Cancel</button>
-              <button class="bg-green-300 text-black p-5 rounded-xl hover:bg-green-500 cursor-pointer">Add
+              <button class="bg-gray-300 text-black p-5 rounded-xl hover:bg-gray-500 cursor-pointer"
+                id="Cancel_btn">Cancel</button>
+              <button class="bg-green-300 text-black p-5 rounded-xl hover:bg-green-500 cursor-pointer" id="tran_btn">Add
                 Transaction</button>
-
             </div>
 
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
