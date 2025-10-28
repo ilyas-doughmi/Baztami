@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaZtami - Manage your Finance</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header class="flex justify-between w-2xs w-full items-center border-b border-gray-400 mt-5 pb-5">
+    <div class="ml-20">
+      <div class="flex items-center  gap-3">
+        <img src="media/logo.png" alt="logo" class="w-[50px]">
+        <h1 class="text-4xl font text-center">Baztami</h1>
+      </div>
+
+    </div>
+    <div class="mr-20">
+      <button id="add_btn" class="bg-green-300 pt-3 pb-3 pl-6 pr-6 border-black border-2 rounded-xl font-semibold">Add
+        Transaction <span class="text-lg">+</span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Dashboard -- INCOME -- EXPENSE -->
+    <div class="h-[40vh]">
+      <div class="content">
+        <div class="mt-10 ml-20 ">
+          <h1 class="font-bold text-5xl">Dashboard</h1>
+          <h5 class="font-light text-2xl mt-4 text-gray-500">Here's summary of your financial activity.</h5>
+        </div>
+        <div class="flex ml-20 mr-20 mt-10 h-[180px] gap-10 stats">
+          <div class="rounded-xl  w-3xl border-1 border-gray-200  pl-10 pt-3 relative">
+            <h5 class="font-light text-xl text-left self-start text-gray-500 font-medium mt-3">Total Income</h5>
+            <h1 class="text-green-600 text-5xl font-semibold mt-2 font-mono font">$<span id="total-inc">???</span></h1>
+            <h4 class="text-green-500 font-extralight mt-5 ">-5.2% vs last month</h4>
+
+            <h1 class="absolute top-3 right-5 text-5xl text-green-300 ">+</h1>
+          </div>
+
+          <div class="rounded-xl  w-3xl border-1 border-gray-200  pl-10 pt-3 relative">
+            <h5 class="font-light text-xl text-left self-start text-gray-500 font-medium mt-3">Total Expenses</h5>
+            <h1 class="text-red-600 text-5xl font-semibold mt-2 font">$<span id="total-exp">???</span></h1>
+            <h4 class="text-red-500 font-extralight mt-5 ">-8.2% vs last month</h4>
+
+            <h1 class="absolute top-3 right-5 text-5xl text-red-300 ">-</h1>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+    <!-- Recent Transaction  -->
+    <div class="transaction w-full h-[50vh] ">
+      <div class="t-content">
+        <h1 class="ml-20 font-semibold text-2xl mb-5">Recent Transactions</h1>
+
+        <!-- Cards container -->
+
+        <div class="container flex flex-col ml-20 gap-10">
+          <!-- Card -->
+          <div class="card bg-green-200 h-20 content-center flex border border-black rounded-xl justify-between">
+            <div class="card-left flex gap-3   items-center ml-10">
+              <i class="fa-solid fa-comment text-green-600"></i>
+              <h1 mt-100>hello world</h1>
+            </div>
+            <div class="right content-center mr-10">
+              <h1 class="text-2xl text-green-600">+$200</h1>
+            </div>
+
+          </div>
+          <div class="card bg-red-200 h-20 content-center flex border border-black rounded-xl justify-between">
+            <div class="card-left flex gap-3   items-center ml-10">
+              <i class="fa-solid fa-comment text-red-600"></i>
+              <h1 mt-100>hello world</h1>
+            </div>
+            <div class="right content-center mr-10">
+              <h1 class="text-2xl text-red-600">-$30</h1>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="index.js"></script>
+</body>
+
+</html>
