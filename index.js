@@ -1,5 +1,19 @@
 const total_exp = document.getElementById("total-exp");
 const total_inc = document.getElementById("total-inc");
-total_exp.textContent = "1";
+const close_popup = document.getElementById("close_add_modal");
+const add_popup = document.getElementById("popup");
+const add_btn = document.getElementById("add_btn");
 
-total_inc.textContent = "0";
+add_popup.hidden = true;
+
+add_btn.onclick = function(){
+    add_popup.hidden = false;
+}
+
+
+
+
+
+total_exp.textContent = "30";
+
+total_inc.textContent = "100";

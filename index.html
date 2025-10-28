@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <header class="flex justify-between w-2xs w-full items-center border-b border-gray-400 mt-5 pb-5">
+  <header class="flex justify-between w-full items-center border-b border-gray-400 mt-5 pb-5">
     <div class="ml-20">
       <div class="flex items-center  gap-3">
         <img src="media/logo.png" alt="logo" class="w-[50px]">
@@ -22,7 +22,8 @@
 
     </div>
     <div class="mr-20">
-      <button id="add_btn" class="bg-green-300 pt-3 pb-3 pl-6 pr-6 border-black border-2 rounded-xl font-semibold">Add
+      <button id="add_btn"
+        class="bg-green-300 pt-3 pb-3 pl-6 pr-6 border-black border-2 rounded-xl font-semibold hover:bg-green-200 cursor-pointer">Add
         Transaction <span class="text-lg">+</span></button>
     </div>
   </header>
@@ -54,7 +55,7 @@
         </div>
       </div>
 
-    </div> 
+    </div>
     <!-- Recent Transaction  -->
     <div class="transaction w-full h-[50vh] ">
       <div class="t-content">
@@ -67,17 +68,18 @@
           <div class="card bg-green-200 h-20 content-center flex border border-black rounded-xl justify-between">
             <div class="card-left flex gap-3   items-center ml-10">
               <i class="fa-solid fa-comment text-green-600"></i>
-              <h1 mt-100>hello world</h1>
+              <h1 mt-100>Youcode Bourse</h1>
             </div>
             <div class="right content-center mr-10">
-              <h1 class="text-2xl text-green-600">+$200</h1>
+              <h1 class="text-2xl text-green-600">+$100</h1>
             </div>
 
           </div>
+
           <div class="card bg-red-200 h-20 content-center flex border border-black rounded-xl justify-between">
             <div class="card-left flex gap-3   items-center ml-10">
               <i class="fa-solid fa-comment text-red-600"></i>
-              <h1 mt-100>hello world</h1>
+              <h1 mt-100>Movie Ticket</h1>
             </div>
             <div class="right content-center mr-10">
               <h1 class="text-2xl text-red-600">-$30</h1>
@@ -88,6 +90,50 @@
         </div>
       </div>
     </div>
+
+    <!-- add transaction modal -->
+
+    <div
+      class="h-[400px] w-[600px] fixed top-50 left-140 border z-900 bg-[#F6F8F7] rounded-xl items-center flex justify-center"
+      id="popup" >
+      <div class="flex flex-col h-[95%] w-[95%] ">
+        <div class="flex justify-between items-center content-center mt-2">
+          <div>
+            <h1 class="text-2xl  font-semibold ml-5">Add New Transaction</h1>
+          </div>
+          <div>
+            <button id="">
+              <i class="fa-solid fa-xmark text-2xl text-gray-700"></i>
+
+            </button>
+          </div>
+        </div>
+        <div class="">
+          <div class="flex flex-col mt-5 ml-5">
+            <label for="transaction_amount_modal" class="font-semibold">Amount</label>
+            <div class="input relative mt-2 w-full ">
+              <h1 class="absolute top-[17px] left-[10px] text-xl">$</h1>
+              <input type="number" name="" id="transaction_amount_modal"
+                class="border border-gray-300 h-[60px] rounded-xl pl-8 w-lg text-xl" placeholder="0.00">
+
+            </div>
+            <label for="transaction_amount_modal" class="font-semibold mt-3 mb-2">Description</label>
+            <input type="text" name="" id="transaction_amount_modal"
+              class="border border-gray-300  h-[60px] rounded-xl pl-8 w-lg text-L   mr-2" placeholder="Eg.Games">
+            
+
+            <div class="flex gap-2 mt-10 ml-60">
+                            <button class="bg-gray-300 text-black p-5 rounded-xl hover:bg-gray-500 cursor-pointer">Cancel</button>
+                            <button class="bg-green-300 text-black p-5 rounded-xl hover:bg-green-500 cursor-pointer">Add Transaction</button>
+                            
+                            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </main>
   <script src="index.js"></script>
 </body>
