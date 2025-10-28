@@ -15,7 +15,7 @@
 <body>
   <header class="flex justify-between w-full items-center border-b border-gray-400 mt-5 pb-5">
     <div class="ml-20">
-      <div class="flex items-center  gap-3">
+      <div class="flex items-center  gap-3 ml-20">
         <img src="media/logo.png" alt="logo" class="w-[50px]">
         <h1 class="text-4xl font text-center">Baztami</h1>
       </div>
@@ -28,7 +28,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="ml-20">
     <!-- Dashboard -- INCOME -- EXPENSE -->
     <div class="h-[40vh]">
       <div class="content">
@@ -95,7 +95,7 @@
 
     <div
       class="h-[400px] w-[600px] fixed top-50 left-140 border z-900 bg-[#F6F8F7] rounded-xl items-center flex justify-center"
-      id="popup" >
+      id="popup">
       <div class="flex flex-col h-[95%] w-[95%] ">
         <div class="flex justify-between items-center content-center mt-2">
           <div>
@@ -120,13 +120,14 @@
             <label for="transaction_amount_modal" class="font-semibold mt-3 mb-2">Description</label>
             <input type="text" name="" id="transaction_amount_modal"
               class="border border-gray-300  h-[60px] rounded-xl pl-8 w-lg text-L   mr-2" placeholder="Eg.Games">
-            
+
 
             <div class="flex gap-2 mt-10 ml-60">
-                            <button class="bg-gray-300 text-black p-5 rounded-xl hover:bg-gray-500 cursor-pointer">Cancel</button>
-                            <button class="bg-green-300 text-black p-5 rounded-xl hover:bg-green-500 cursor-pointer">Add Transaction</button>
-                            
-                            </div>
+              <button class="bg-gray-300 text-black p-5 rounded-xl hover:bg-gray-500 cursor-pointer" id="Cancel_btn">Cancel</button>
+              <button class="bg-green-300 text-black p-5 rounded-xl hover:bg-green-500 cursor-pointer">Add
+                Transaction</button>
+
+            </div>
 
           </div>
 
