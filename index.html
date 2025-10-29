@@ -44,7 +44,7 @@
         <div class="flex-1 border border-gray-200 rounded-xl p-6 relative">
           <h5 class="text-gray-500 font-medium text-xl">Total Income</h5>
           <h1 class="text-green-600 text-4xl sm:text-5xl font-semibold mt-2 font-mono">
-            $<span id="total-inc">???</span>
+            $<span id="total-inc">0</span>
           </h1>
           <h4 class="text-green-500 font-extralight mt-3">
             -5.2% vs last month
@@ -55,7 +55,7 @@
         <div class="flex-1 border border-gray-200 rounded-xl p-6 relative">
           <h5 class="text-gray-500 font-medium text-xl">Total Expenses</h5>
           <h1 class="text-red-600 text-4xl sm:text-5xl font-semibold mt-2 font-mono">
-            $<span id="total-exp">???</span>
+            $<span id="total-exp">0</span>
           </h1>
           <h4 class="text-red-500 font-extralight mt-3">
             -8.2% vs last month
@@ -121,31 +121,7 @@
 
           </div>
         </div>
-        <div class="h-[400px] w-[400px] bg-red-300">
-          <div class="content flex flex-col">
-            <!-- card top -->
-            <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
-              <div class="show flex  gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer">Edit</h1>
-                <h2 class="font-bold text-xl hover:scale-110 cursor-pointer">Delete</h2>
-              </div>
-              <!-- three points -->
-              <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
-            </div>
-
-            <!-- card middle -->
-             <div class="middle content-center items-center flex text-center mt-7 text-xl">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus neque eaque numquam, quidem amet quia, vitae veritatis sit ducimus omnis porro, nihil quae dolorem quo eius aspernatur expedita deserunt?</p>
-             </div>
-
-             <!-- Card buttom -->
-
-             <div class="flex content-center items-center justify-center mt-6 mr-2">
-              <h1 class="text-5xl text-center text-red-600 font-bold mr-3">-$30</h1>
-             </div>
-
-          </div>
-        </div>
+        
 
       </div>
     </section>
@@ -190,7 +166,7 @@
           <!-- Description -->
           <div>
             <label for="transaction_description_modal" class="font-semibold">Description</label>
-            <input type="text" id="transaction_description_modal"
+            <input type="text" 
               class="border border-gray-300 rounded-xl pl-4 w-full h-[50px] text-lg" placeholder="e.g. Games"
                id="description" />
           </div>
