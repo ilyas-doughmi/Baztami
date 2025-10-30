@@ -93,7 +93,7 @@ function add() {
             total_exp.textContent = exp;
             console.log(`exp is ${exp}`);
 
-            const card_red = ` <div class="h-[300px] w-fullbg-red-300">
+            const card_red = ` <div class="h-[300px] w-full bg-red-300">
           <div class="content flex flex-col">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
