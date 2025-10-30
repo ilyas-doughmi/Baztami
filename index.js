@@ -84,6 +84,19 @@ function add() {
           </div>
         </div>`
       container.insertAdjacentHTML('afterbegin', card_green);
+
+      
+      let transaction = {
+        id: id,
+        description: description.value,
+        amount: amount.value,
+        income: true
+      }
+
+
+      localStorage.setItem("transaction_" + id, JSON.stringify(transaction));
+      id++;
+      console.log(id);
     }
     else {
       exp += Number(amount.value);
@@ -184,6 +197,41 @@ function fetch_data() {
           </div>
         </div>`
       container.insertAdjacentHTML('afterbegin', card_red);
+
+      console.log("Spawnerd");
+    }
+    else{
+      
+        money += Number(transaction_fetch.amount);
+
+
+      add_popup.hidden = true;
+      const card_green = ` <div class="h-[300px] w-full bg-green-300">
+          <div class="content flex flex-col ">
+            <!-- card top -->
+            <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
+              <div class="show flex  gap-3">
+                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer">Edit</h1>
+                <h2 class="font-bold text-xl hover:scale-110 cursor-pointer">Delete</h2>
+              </div>
+              <!-- three points -->
+              <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
+            </div>
+
+            <!-- card middle -->
+             <div class="middle content-center items-center flex text-center mt-7 text-xl">
+                <p class="text-center">${transaction_fetch.description}</p>
+             </div>
+
+             <!-- Card buttom -->
+
+             <div class="flex content-center items-center justify-center mt-6 mr-2">
+              <h1 class="text-5xl text-center text-green-600 font-bold mr-3">-$${transaction_fetch.amount}</h1>
+             </div>
+
+          </div>
+        </div>`
+      container.insertAdjacentHTML('afterbegin', card_green);
 
       console.log("Spawnerd");
     }
