@@ -17,9 +17,6 @@ var des;
 
 
 
-three_points.onclick = function () {
-    small_menu.style.opacity = 1000;
-}
 
 add_btn.onclick = function () {
     add_popup.hidden = false;
@@ -41,8 +38,11 @@ x_btn.onclick = function () {
 const amount = document.getElementById("amount");
 const description = document.getElementById("description");
 const container = document.querySelector(".container");
+const total_net = document.getElementById("total-net");
 
 let exp = 0;
+            let net = money - exp; 
+
 
 function add() {
 
@@ -52,6 +52,10 @@ function add() {
     if (amount.value != "" && description.value != "") {
         if (income_radio.checked) {
             money += Number(amount.value);
+            net = money - exp;
+
+            total_net.textContent = net;
+
                     total_inc.textContent = money;
             add_popup.hidden = true;
             const card_green = ` <div class="h-[400px] w-[400px] bg-green-300">
@@ -83,6 +87,9 @@ function add() {
         }
         else{
              exp += Number(amount.value);
+             net = money - exp;
+                         total_net.textContent = net;
+
             total_exp.textContent = exp;
             console.log(`exp is ${exp}`);
 
@@ -112,6 +119,7 @@ function add() {
           </div>
         </div>`
            container.insertAdjacentHTML('afterbegin', card_red);
+           add_popup.hidden = true;
 
         }
 
