@@ -30,7 +30,7 @@
 
 
 
-        <div class="h-[400px] w-[400px] bg-red-300">
+        <div class="h-[400px] w-[400px] bg-red-300 id=${id}">
           <div class="content flex flex-col">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >

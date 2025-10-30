@@ -10,7 +10,7 @@ const x_btn = document.getElementById("x_btn");
 const income_radio = document.getElementById("income_radio");
 const three_points = document.getElementById("three-points");
 
-var id = localStorage.length +1 ;
+var id = localStorage.length + 1;
 
 var money = 0;
 var des;
@@ -58,7 +58,7 @@ function add() {
 
       total_inc.textContent = money;
       add_popup.hidden = true;
-      const card_green = ` <div class="h-[300px] w-full bg-green-300">
+      const card_green = ` <div class="h-[300px] w-full bg-green-300 id=${id}">
           <div class="content flex flex-col ">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
@@ -85,7 +85,7 @@ function add() {
         </div>`
       container.insertAdjacentHTML('afterbegin', card_green);
 
-      
+
       let transaction = {
         id: id,
         description: description.value,
@@ -106,7 +106,7 @@ function add() {
       total_exp.textContent = exp;
       console.log(`exp is ${exp}`);
 
-      const card_red = ` <div class="h-[300px] w-full bg-red-300">
+      const card_red = ` <div class="h-[300px] w-full bg-red-300 id=${id}">
           <div class="content flex flex-col">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
@@ -160,18 +160,28 @@ function add() {
 
 
 function fetch_data() {
+  const amount = document.getElementById("amount");
+  const description = document.getElementById("description");
+  const total_net = document.getElementById("total-net");
   const container = document.querySelector(".container");
+
 
   for (let i = 1; i <= localStorage.length; i++) {
     let transaction_fetch = JSON.parse(localStorage.getItem("transaction_" + i));
 
     console.log(`income is ${transaction_fetch.income}`);
-    if (! transaction_fetch.income) {
+    let income = 0;
+    var expense = 0;
+    expense += Number(transaction_fetch.amount);
+
+    if (!transaction_fetch.income) {
       money += Number(transaction_fetch.amount);
+      expense += Number(transaction_fetch.amount);
+      total_exp.textContent = expense;
 
 
       add_popup.hidden = true;
-      const card_red = ` <div class="h-[300px] w-full bg-red-300">
+      const card_red = ` <div class="h-[300px] w-full bg-red-300 id=${id}">
           <div class="content flex flex-col ">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
@@ -200,13 +210,13 @@ function fetch_data() {
 
       console.log("Spawnerd");
     }
-    else{
-      
-        money += Number(transaction_fetch.amount);
+    else {
+
+      money += Number(transaction_fetch.amount);
 
 
       add_popup.hidden = true;
-      const card_green = ` <div class="h-[300px] w-full bg-green-300">
+      const card_green = ` <div class="h-[300px] w-full bg-green-300 id=${id}">
           <div class="content flex flex-col ">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
