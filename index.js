@@ -58,8 +58,8 @@ function add() {
 
                     total_inc.textContent = money;
             add_popup.hidden = true;
-            const card_green = ` <div class="h-[400px] w-[400px] bg-green-300">
-          <div class="content flex flex-col">
+            const card_green = ` <div class="h-[300px] w-full bg-green-300">
+          <div class="content flex flex-col ">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
               <div class="show flex  gap-3">
@@ -93,7 +93,7 @@ function add() {
             total_exp.textContent = exp;
             console.log(`exp is ${exp}`);
 
-            const card_red = ` <div class="h-[400px] w-[400px] bg-red-300">
+            const card_red = ` <div class="h-[300px] w-fullbg-red-300">
           <div class="content flex flex-col">
             <!-- card top -->
             <div class="top mt-5 ml-6 mr-6 flex justify-between  items-center"  >
