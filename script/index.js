@@ -126,20 +126,20 @@ function add() {
     } else {
       document.getElementById("err_amount").hidden = false;
       Swal.fire({
-  title: "Amount Too Low",
-  text: "Amount must be at least 0.01!",
-  icon: "warning"
-});
+        title: "Amount Too Low",
+        text: "Amount must be at least 0.01!",
+        icon: "error"
+      });
 
 
     }
   } else {
-    window.alert("Please fill in all fields before continuing!");
     Swal.fire({
-  title: "Amount Too Low",
-  text: "Amount must be at least 0.01!",
-  icon: "warning"
-});
+      title: "Incomplete Form",
+      text: "Please make sure all fields are filled out before continuing.",
+      icon: "error"
+    });
+
   }
 }
 

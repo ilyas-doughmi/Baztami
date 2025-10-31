@@ -110,7 +110,7 @@
     </section>
 
     <!-- Modal -->
-    <div id="popup" class=" fixed inset-0 bg-black/90 -40 flex items-center justify-center z-50" >
+    <div id="popup" class=" fixed inset-0 bg-black/90 -40 flex items-center justify-center z-50" hidden>
       <div class="bg-[#F6F8F7] rounded-xl w-[90%] sm:w-[600px] p-5 sm:p-8 shadow-lg">
         <div class="flex justify-between items-center">
           <h1 class="text-xl sm:text-2xl font-semibold">Add New Transaction</h1>
@@ -124,7 +124,7 @@
           <div>
             <div class="flex gap-2"> 
                     <label for="amount" class="font-semibold">Amount</label>
-            <p class="text-red-600 text-sm self-center" id="err_amount">Amount must be at least 0.01</p>
+            <p class="text-red-600 text-sm self-center" id="err_amount" hidden>Amount must be at least 0.01</p>
 
             </div>
   
