@@ -13,6 +13,7 @@ var id = localStorage.length + 1;
 const delete_popup = document.getElementById("delete_popup");
 delete_popup.hidden = true;
 
+
 var money = 0;
 var des;
 var exp = 0;
@@ -20,6 +21,7 @@ var net = 0;
 
 const amount = document.getElementById("amount");
 const description = document.getElementById("description");
+const date = document.getElementById("date");
 const container = document.querySelector(".container");
 const total_net = document.getElementById("total-net");
 
@@ -38,7 +40,7 @@ x_btn.onclick = function () {
 fetch_data();
 
 function add() {
-  if (amount.value != "" && description.value != "") {
+  if (amount.value != "" && description.value != "" && date.value != "") {
     if (Number(amount.value) > 0.01) {
       if (income_radio.checked) {
         money += Number(amount.value);
@@ -48,21 +50,22 @@ function add() {
         add_popup.hidden = true;
 
         const card_green = `
-        <div class="h-[300px] w-full bg-green-300 border border-black border-2" id="${id}">
-          <div class="content flex flex-col ">
-            <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
-              <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${id})">Edit</h1>
-                <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${id})">Delete</h2>
-              </div>
-              <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
+        <div class="h-[300px] w-full bg-green-300 border-2 border-black rounded-xl shadow p-5" id="${id}">
+          <div class="flex justify-between items-start">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-arrow-trend-up text-green-700"></i>
+              <span class="text-sm text-gray-700">${date.value}</span>
             </div>
-             <div class="middle content-center items-center flex text-center mt-7 text-xl">
-                <p class="text-center">${description.value}</p>
-             </div>
-             <div class="flex c ontent-center items-center justify-center mt-6 mr-2">
-              <h1 class="text-5xl text-center text-green-600 font-bold mr-3">+$${amount.value}</h1>
-             </div>
+            <div class="flex items-center gap-4">
+              <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${id})">Edit</span>
+              <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${id})">Delete</span>
+            </div>
+          </div>
+          <div class="text-center mt-6 text-xl">
+            <p>${description.value}</p>
+          </div>
+          <div class="text-center mt-4">
+            <h1 class="text-5xl text-green-600 font-bold">+$${amount.value}</h1>
           </div>
         </div>`;
         container.insertAdjacentHTML("afterbegin", card_green);
@@ -71,6 +74,7 @@ function add() {
           id: id,
           description: description.value,
           amount: amount.value,
+          date: date.value,
           income: true,
           deleted: false
         };
@@ -87,21 +91,22 @@ function add() {
         total_net.textContent = net;
         total_exp.textContent = exp;
         const card_red = `
-        <div class="h-[300px] w-full bg-red-300 border border-black border-2" id="${id}">
-          <div class="content flex flex-col">
-            <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
-              <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${id})">Edit</h1>
-                <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${id})">Delete</h2>
-              </div>
-              <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
+        <div class="h-[300px] w-full bg-red-300 border-2 border-black rounded-xl shadow p-5" id="${id}">
+          <div class="flex justify-between items-start">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-arrow-trend-down text-red-700"></i>
+              <span class="text-sm text-gray-700">${date.value}</span>
             </div>
-             <div class="middle content-center items-center flex text-center mt-7 text-xl">
-                <p class="text-center">${description.value}</p>
-             </div>
-             <div class="flex content-center items-center justify-center mt-6 mr-2">
-              <h1 class="text-5xl text-center text-red-600 font-bold mr-3">-$${amount.value}</h1>
-             </div>
+            <div class="flex items-center gap-4">
+              <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${id})">Edit</span>
+              <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${id})">Delete</span>
+            </div>
+          </div>
+          <div class="text-center mt-6 text-xl">
+            <p>${description.value}</p>
+          </div>
+          <div class="text-center mt-4">
+            <h1 class="text-5xl text-red-600 font-bold">-$${amount.value}</h1>
           </div>
         </div>`;
         container.insertAdjacentHTML("afterbegin", card_red);
@@ -112,6 +117,7 @@ function add() {
           id: id,
           description: description.value,
           amount: amount.value,
+          date: date.value,
           income: false,
           deleted: false
         };
@@ -156,45 +162,47 @@ function fetch_data() {
       expense += Number(transaction_fetch.amount);
       total_exp.textContent = expense;
       const card_red = `
-      <div class="h-[300px] w-full bg-red-300 border-2 border-black" id="${i}">
-          <div class="content flex flex-col ">
-            <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
-              <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${i})">Edit</h1>
-                <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${i})">Delete</h2>
-              </div>
-              <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
-            </div>
-             <div class="middle content-center items-center flex text-center mt-7 text-xl">
-                <p class="text-center">${transaction_fetch.description}</p>
-             </div>
-             <div class="flex content-center items-center justify-center mt-6 mr-2">
-              <h1 class="text-5xl text-center text-red-600 font-bold mr-3">-$${transaction_fetch.amount}</h1>
-             </div>
+      <div class="h-[300px] w-full bg-red-300 border-2 border-black rounded-xl shadow p-5" id="${i}">
+        <div class="flex justify-between items-start">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-arrow-trend-down text-red-700"></i>
+            <span class="text-sm text-gray-700">${transaction_fetch.date || ""}</span>
           </div>
-        </div>`;
+          <div class="flex items-center gap-4">
+            <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${i})">Edit</span>
+            <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${i})">Delete</span>
+          </div>
+        </div>
+        <div class="text-center mt-6 text-xl">
+          <p>${transaction_fetch.description}</p>
+        </div>
+        <div class="text-center mt-4">
+          <h1 class="text-5xl text-red-600 font-bold">-$${transaction_fetch.amount}</h1>
+        </div>
+      </div>`;
       container.insertAdjacentHTML("afterbegin", card_red);
     } else {
       income += Number(transaction_fetch.amount);
       total_inc.textContent = income;
       const card_green = `
-      <div class="h-[300px] w-full bg-green-300 border-2 border-black" id="${i}">
-          <div class="content flex flex-col ">
-            <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
-              <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${i})">Edit</h1>
-                <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${i})">Delete</h2>
-              </div>
-              <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
-            </div>
-             <div class="middle content-center items-center flex text-center mt-7 text-xl">
-                <p class="text-center">${transaction_fetch.description}</p>
-             </div>
-             <div class="flex content-center items-center justify-center mt-6 mr-2">
-              <h1 class="text-5xl text-center text-green-600 font-bold mr-3">+$${transaction_fetch.amount}</h1>
-             </div>
+      <div class="h-[300px] w-full bg-green-300 border-2 border-black rounded-xl shadow p-5" id="${i}">
+        <div class="flex justify-between items-start">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-arrow-trend-up text-green-700"></i>
+            <span class="text-sm text-gray-700">${transaction_fetch.date || ""}</span>
           </div>
-        </div>`;
+          <div class="flex items-center gap-4">
+            <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${i})">Edit</span>
+            <span class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${i})">Delete</span>
+          </div>
+        </div>
+        <div class="text-center mt-6 text-xl">
+          <p>${transaction_fetch.description}</p>
+        </div>
+        <div class="text-center mt-4">
+          <h1 class="text-5xl text-green-600 font-bold">+$${transaction_fetch.amount}</h1>
+        </div>
+      </div>`;
       container.insertAdjacentHTML("afterbegin", card_green);
     }
   }
@@ -241,6 +249,7 @@ const amount_edit = document.getElementById("amount_edit");
 const icome_edit = document.getElementById("icome_edit");
 const expense_edit = document.getElementById("expense_edit");
 const description_edit = document.getElementById("description_edit");
+const date_edit = document.getElementById("date_edit");
 
 const submit_edit = document.getElementById("submit_edit");
 
@@ -258,6 +267,7 @@ function editcard(transaction_id) {
 
 
   description_edit.value = transaction_fetch.description;
+  date_edit.value = transaction_fetch.date || "";
 
   submit_edit.onclick = function () {
 
@@ -274,6 +284,7 @@ function Modifie(transaction_id, transaction_fetch) {
   console.log(`Old : ${olddesc}`);
   transaction_fetch.description = description_edit.value;
   transaction_fetch.amount = amount_edit.value;
+  transaction_fetch.date = date_edit.value;
 
   console.log(`new : ${transaction_fetch.description}`);
 
@@ -288,6 +299,7 @@ function Modifie(transaction_id, transaction_fetch) {
     id: transaction_fetch.id,
     description: transaction_fetch.description,
     amount: transaction_fetch.amount,
+    date: transaction_fetch.date,
     deleted: false,
     income: transaction_fetch.income
 
