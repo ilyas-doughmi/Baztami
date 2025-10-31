@@ -60,7 +60,7 @@ function add() {
              <div class="middle content-center items-center flex text-center mt-7 text-xl">
                 <p class="text-center">${description.value}</p>
              </div>
-             <div class="flex content-center items-center justify-center mt-6 mr-2">
+             <div class="flex c ontent-center items-center justify-center mt-6 mr-2">
               <h1 class="text-5xl text-center text-green-600 font-bold mr-3">+$${amount.value}</h1>
              </div>
           </div>
@@ -78,7 +78,7 @@ function add() {
         id++;
         Swal.fire({
           title: "Transaction Added Successfuly",
-         
+
           icon: "success"
         });
       } else {
@@ -106,7 +106,7 @@ function add() {
         </div>`;
         container.insertAdjacentHTML("afterbegin", card_red);
         add_popup.hidden = true;
-        
+
 
         let transaction = {
           id: id,
@@ -117,17 +117,29 @@ function add() {
         };
         localStorage.setItem("transaction_" + id, JSON.stringify(transaction));
         id++;
-         Swal.fire({
+        Swal.fire({
           title: "Transaction Added Successfuly",
-         
+
           icon: "success"
         });
       }
     } else {
-      window.alert("The amount must be at least $0.01!");
+      document.getElementById("err_amount").hidden = false;
+      Swal.fire({
+  title: "Amount Too Low",
+  text: "Amount must be at least 0.01!",
+  icon: "warning"
+});
+
+
     }
   } else {
     window.alert("Please fill in all fields before continuing!");
+    Swal.fire({
+  title: "Amount Too Low",
+  text: "Amount must be at least 0.01!",
+  icon: "warning"
+});
   }
 }
 
