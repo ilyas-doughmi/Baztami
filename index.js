@@ -233,6 +233,7 @@ function editcard(transaction_id) {
    description_edit.value = transaction_fetch.description;
 
    submit_edit.onclick = function () {
+
     Modifie(transaction_id,transaction_fetch);
   };
 }
@@ -240,8 +241,38 @@ function editcard(transaction_id) {
 
 
 function Modifie(transaction_id,transaction_fetch){
-  
+
   console.log(`Edit Clicked For ${transaction_fetch.id}`);
+  let olddesc =  transaction_fetch.description;
+  console.log(`Old : ${olddesc}`);
+  transaction_fetch.description = description_edit.value;
+  transaction_fetch.amount = amount_edit.value;
+
+  console.log(`new : ${transaction_fetch.description}`);
+
+   if(icome_edit.checked == true){
+    transaction_fetch.income = true;
+   }
+   else{
+    transaction_fetch.income = false; 
+   }
+  edit_pop.hidden = true;
+  let newobject = {
+    id : transaction_fetch.id,
+    description : transaction_fetch.description,
+    amount: transaction_fetch.amount,
+    deleted: false,
+    income: transaction_fetch.income
+  
+  }
+
+  console.log(transaction_fetch.income);
+  
+
+    localStorage.setItem("transaction_" + transaction_id, JSON.stringify(newobject));
+
+   fetch_data();
+
 }
 
 function hide_edit(){
