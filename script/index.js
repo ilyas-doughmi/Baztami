@@ -76,6 +76,11 @@ function add() {
         };
         localStorage.setItem("transaction_" + id, JSON.stringify(transaction));
         id++;
+        Swal.fire({
+          title: "Transaction Added Successfuly",
+         
+          icon: "success"
+        });
       } else {
         exp += Number(amount.value);
         net = money - exp;
@@ -101,6 +106,7 @@ function add() {
         </div>`;
         container.insertAdjacentHTML("afterbegin", card_red);
         add_popup.hidden = true;
+        
 
         let transaction = {
           id: id,
@@ -111,6 +117,11 @@ function add() {
         };
         localStorage.setItem("transaction_" + id, JSON.stringify(transaction));
         id++;
+         Swal.fire({
+          title: "Transaction Added Successfuly",
+         
+          icon: "success"
+        });
       }
     } else {
       window.alert("The amount must be at least $0.01!");
@@ -205,6 +216,10 @@ function delete_confirmed(id_transaction) {
   }
   delete_popup.hidden = true;
   fetch_data();
+  Swal.fire({
+    title: "Deleted Success",
+    icon: "error"
+  });
 }
 
 
@@ -212,7 +227,7 @@ function delete_confirmed(id_transaction) {
 const edit_pop = document.getElementById("edit_pop");
 const amount_edit = document.getElementById("amount_edit");
 const icome_edit = document.getElementById("icome_edit");
- const expense_edit = document.getElementById("expense_edit");
+const expense_edit = document.getElementById("expense_edit");
 const description_edit = document.getElementById("description_edit");
 
 const submit_edit = document.getElementById("submit_edit");
@@ -222,59 +237,64 @@ function editcard(transaction_id) {
   let transaction_fetch = JSON.parse(localStorage.getItem("transaction_" + transaction_id));
   console.log(transaction_fetch);
   amount_edit.value = transaction_fetch.amount;
-   if(transaction_fetch.income == true){
+  if (transaction_fetch.income == true) {
     icome_edit.checked = true;
-   }
-   else{
-    expense_edit.checked = true; 
-   }
+  }
+  else {
+    expense_edit.checked = true;
+  }
 
 
-   description_edit.value = transaction_fetch.description;
+  description_edit.value = transaction_fetch.description;
 
-   submit_edit.onclick = function () {
+  submit_edit.onclick = function () {
 
-    Modifie(transaction_id,transaction_fetch);
+    Modifie(transaction_id, transaction_fetch);
   };
 }
 
 
 
-function Modifie(transaction_id,transaction_fetch){
+function Modifie(transaction_id, transaction_fetch) {
 
   console.log(`Edit Clicked For ${transaction_fetch.id}`);
-  let olddesc =  transaction_fetch.description;
+  let olddesc = transaction_fetch.description;
   console.log(`Old : ${olddesc}`);
   transaction_fetch.description = description_edit.value;
   transaction_fetch.amount = amount_edit.value;
 
   console.log(`new : ${transaction_fetch.description}`);
 
-   if(icome_edit.checked == true){
+  if (icome_edit.checked == true) {
     transaction_fetch.income = true;
-   }
-   else{
-    transaction_fetch.income = false; 
-   }
+  }
+  else {
+    transaction_fetch.income = false;
+  }
   edit_pop.hidden = true;
   let newobject = {
-    id : transaction_fetch.id,
-    description : transaction_fetch.description,
+    id: transaction_fetch.id,
+    description: transaction_fetch.description,
     amount: transaction_fetch.amount,
     deleted: false,
     income: transaction_fetch.income
-  
+
   }
 
   console.log(transaction_fetch.income);
-  
 
-    localStorage.setItem("transaction_" + transaction_id, JSON.stringify(newobject));
 
-   fetch_data();
+  localStorage.setItem("transaction_" + transaction_id, JSON.stringify(newobject));
+
+  fetch_data();
+
+  Swal.fire({
+    title: "Edited Success",
+    icon: "success"
+  });
 
 }
 
-function hide_edit(){
+function hide_edit() {
   edit_pop.hidden = true;
 }
