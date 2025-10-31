@@ -52,7 +52,7 @@ function add() {
           <div class="content flex flex-col ">
             <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
               <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer">Edit</h1>
+                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${id})">Edit</h1>
                 <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${id})">Delete</h2>
               </div>
               <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
@@ -86,7 +86,7 @@ function add() {
           <div class="content flex flex-col">
             <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
               <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer">Edit</h1>
+                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${id})">Edit</h1>
                 <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${id})">Delete</h2>
               </div>
               <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
@@ -137,7 +137,7 @@ function fetch_data() {
           <div class="content flex flex-col ">
             <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
               <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer">Edit</h1>
+                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${i})">Edit</h1>
                 <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${i})">Delete</h2>
               </div>
               <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
@@ -159,7 +159,7 @@ function fetch_data() {
           <div class="content flex flex-col ">
             <div class="top mt-5 ml-6 mr-6 flex justify-between items-center">
               <div class="show flex gap-3">
-                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer">Edit</h1>
+                <h1 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="editcard(${i})">Edit</h1>
                 <h2 class="font-bold text-xl hover:scale-110 cursor-pointer" onclick="deletecard(${i})">Delete</h2>
               </div>
               <i class="fa-solid fa-ellipsis-vertical text-xl font-bold hover:scale-110 cursor-pointer mt-1"></i>
@@ -183,6 +183,7 @@ function fetch_data() {
   exp = expense;
   net = income - expense;
 }
+// DELETE CARD 
 
 function deletecard(transaction_id) {
   delete_popup.hidden = false;
@@ -204,4 +205,45 @@ function delete_confirmed(id_transaction) {
   }
   delete_popup.hidden = true;
   fetch_data();
+}
+
+
+// EDIT CARD 
+const edit_pop = document.getElementById("edit_pop");
+const amount_edit = document.getElementById("amount_edit");
+const icome_edit = document.getElementById("icome_edit");
+ const expense_edit = document.getElementById("expense_edit");
+const description_edit = document.getElementById("description_edit");
+
+const submit_edit = document.getElementById("submit_edit");
+
+function editcard(transaction_id) {
+  edit_pop.hidden = false;
+  let transaction_fetch = JSON.parse(localStorage.getItem("transaction_" + transaction_id));
+  console.log(transaction_fetch);
+  amount_edit.value = transaction_fetch.amount;
+   if(transaction_fetch.income == true){
+    icome_edit.checked = true;
+   }
+   else{
+    expense_edit.checked = true; 
+   }
+
+
+   description_edit.value = transaction_fetch.description;
+
+   submit_edit.onclick = function () {
+    Modifie(transaction_id,transaction_fetch);
+  };
+}
+
+
+
+function Modifie(transaction_id,transaction_fetch){
+  
+  console.log(`Edit Clicked For ${transaction_fetch.id}`);
+}
+
+function hide_edit(){
+  edit_pop.hidden = true;
 }

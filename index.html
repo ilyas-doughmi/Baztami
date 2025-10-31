@@ -170,7 +170,7 @@
     </div>
 
 
-    <!-- DELETE POPUP -->
+    <!-- DELETE MODAL -->
      <div id="delete_popup" class=" fixed inset-0 bg-black/90 -40 flex items-center justify-center z-50" >
       <div class="bg-[#F6F8F7] rounded-xl w-[90%] sm:w-[600px] p-5 sm:p-8 shadow-lg">
         <div class="flex justify-center items-center">
@@ -189,8 +189,68 @@
           </div>
       </div>
     </div>
-  </main>
 
+
+    <!-- EDIT MODAL -->
+    <div id="edit_pop" class=" fixed inset-0 bg-black/90 -40 flex items-center justify-center z-50" hidden>
+      <div class="bg-[#F6F8F7] rounded-xl w-[90%] sm:w-[600px] p-5 sm:p-8 shadow-lg">
+        <div class="flex justify-between items-center">
+          <h1 class="text-xl sm:text-2xl font-semibold">Edit Transaction</h1>
+          <button onclick="hide_edit()">
+            <i class="fa-solid fa-xmark text-2xl text-gray-700 hover:scale-110 transition cursor-pointer"></i>
+          </button>
+        </div>
+
+        <div class="flex flex-col mt-5 space-y-4">
+          <!-- Amount -->
+          <div>
+            <label for="transaction_amount_modal" class="font-semibold">Amount</label>
+            <div class="relative mt-2">
+              <span class="absolute top-3 left-3 text-xl">$</span>
+              <input type="number"
+                class="border border-gray-300 rounded-xl pl-8 w-full h-[50px] text-lg" placeholder="0.00" id="amount_edit"  min="0.01"/>
+            </div>
+          </div>
+
+          <!-- Type -->
+          <div>
+            <label class="font-semibold">Transaction Type</label>
+            <div class="flex gap-6 mt-2">
+              <label class="flex items-center gap-2">
+                <input type="radio" name="transaction_type"  value="income"
+                  class="w-5 h-5 accent-green-500" id="icome_edit"/>
+                <span>Income</span>
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="radio" name="transaction_type" value="expense" class="w-5 h-5 accent-red-500" id="expense_edit" />
+                <span>Expense</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <label for="transaction_description_modal" class="font-semibold">Description</label>
+            <input type="text" 
+              class="border border-gray-300 rounded-xl pl-4 w-full h-[50px] text-lg" placeholder="e.g. Games"
+               id="description_edit" />
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex justify-end gap-3 mt-6">
+            <button type="button" onclick="hide_edit()"
+              class="bg-gray-300 hover:bg-gray-400 text-black py-2 px-5 rounded-xl cursor-pointer">
+              Cancel
+            </button>
+            <button id="submit_edit"
+              class="bg-green-300 hover:bg-green-500 text-black py-2 px-5 rounded-xl cursor-pointer">
+              Edit Transaction
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
   <script src="index.js"></script>
 </body>
 
