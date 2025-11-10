@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background: linear-gradient(180deg, #ECBABE, #FAB389);
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+header img {
+  position: relative;
+  bottom: -50px;
+  height: 100%;
+  border-radius: 100%;
+  border: 5px solid white;
+}
+
+main {
+  height: 75vh;
+}
+main .informations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+main .informations .simple-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 10vh;
+}
+main .informations .simple-info h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+main .informations .simple-info h2 {
+  font-weight: 900;
+  font-size: 18px;
+  margin-top: 5px;
+  color: #929292;
+  font-family: "Roboto", sans-serif;
+}
+main .informations .simple-info .simple_info_location {
+  display: flex;
+  color: #ACACAC;
+  margin-top: 12px;
+  gap: 5px;
+}
+main .informations .info_btn button {
+  padding: 15px 140px;
+  margin-top: 25px;
+  background-color: #4290FC;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  font-weight: 500;
+}
+main .connect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+main .connect div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 250px;
+}
+main .our-team {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+main .our-team img {
+  border-radius: 100%;
+  border: 5px solid orange;
+}
+main .our-team .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 300px;
+  width: 100%;
+}
+main .our-team .card h3 {
+  font-weight: 400;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+footer h1 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 656px) {
+  main .our-team {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 452px) {
+  main .our-team {
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=style.css.map */
