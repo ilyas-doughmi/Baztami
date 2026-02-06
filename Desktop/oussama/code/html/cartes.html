@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-text: #324A5F;
+      --secondary-text: #0C1821;
+    }
+
+    body {
+      color: var(--primary-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--secondary-text);
+    }
+  </style>
+  <title>Mes cartes</title>
+</head>
+<body class="font-['Inter'] bg-gray-50">
+  
+      <header >
+
+        <div class="flex justify-between items-center relative ">
+             <div id="Hamburger-menu" >
+                <button id="menu-btn" class="md:hidden ml-4">
+                <i id="menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+
+        <div id="menu" class="left-1 absolute border-2 border-[#324A5F] mt-2 flex flex-col justify-around bg-gray-100 p-3 rounded-3xl shadow-md transform scale-y-0 origin-top transition-transform duration-300 ease-out h-auto w-56">
+            
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-gauge text-blue-600"></i>
+            <a href="compte.html" class="py-2 hover:text-green-600">Comptes</a>
+            </div>
+
+        
+
+            <div class="flex gap-2 items-center " >
+            <i class="fa-solid fa-money-bill-transfer text-green-600"></i>
+            <a href="virement.html" class="py-2 hover:text-green-600">Virement</a>
+            </div>
+
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-clock-rotate-left text-orange-500"></i>
+            <a href="historiques.html" class="py-2 hover:text-green-600">Historique</a>
+            </div>
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-credit-card fa-2xs text-purple-500"></i>
+            <a href="cartes.html" class="py-2 hover:text-green-600">Mes cartes</a>
+            </div>
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-credit-card fa-2xs text-purple-500"></i>
+            <a href="benificaires.html" class="py-2 hover:text-green-600">Mes benificaires</a>
+            </div>
+
+         </div>
+        </div>
+
+        <div class="flex items-center p-3">
+            <img src="../../media/ycdbanklogo-noBG.png" style="width: 59px; height: 50px;">
+            <h2 class="font-medium" style="font-size:18px;">YCD Bank</h2>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-[#324A5F]">
+            <a href="compte.html" class="hover:text-[#0C1821]">Comptes</a>
+            <a href="cartes.html" class="hover:text-[#0C1821] text-[#0C1821]">Cartes</a>
+            <a href="virement.html" class="hover:text-[#0C1821]">Virements</a>
+            <a href="benificaires.html" class="hover:text-[#0C1821]">B�n�ficiaires</a>
+            <a href="historiques.html" class="hover:text-[#0C1821]">Historique</a>
+        </nav>
+        
+        <div id="user-notif">
+        <div class="flex  gap-4 mr-4">
+            <button id="notification-bell-btn">
+               <i id="notification-bell-icon"  class="fa-regular fa-bell fa-lg"></i>
+            </button>
+            <button id="user-circle-btn">
+               <i id="user-circle" class="fa-regular fa-circle-user fa-lg"></i>
+            </button>
+        </div>
+
+
+        <div id="DECONNECT" class="right-1 absolute border-2 border-[#324A5F] mt-2 bg-gray-100 p-3 rounded-3xl shadow-md transform scale-y-0 origin-top transition-transform duration-300 ease-out h-auto w-[40%]">
+            
+            <div class="flex gap-2 items-center ">
+                <button id="DECONNECT-btn">
+                    <i id ="deconnect-icon" class="fa-solid fa-toggle-on text-green-600"></i>
+                </button>
+                <p class="text-bold">Deconnexion</p>
+            </div>
+
+
+         </div>
+        </div>
+        
+        </div>
+
+    </header>
+
+  <main class="max-w-6xl mx-auto px-4 md:px-10 py-6 space-y-6">
+    <div id="back-forth" class="flex items-center mb-6 gap-3">
+      <button id="leftarrow" class="hidden">
+        <i id="leftarowicon" class="fa-solid fa-arrow-left hidden"></i>
+      </button>
+    <h1 id="mescartes" class="text-2xl font-bold ">Mes cartes</h1>
+    </div>
+    
+
+    <section id="cardcontainer1" class="rounded-3xl bg-[#324A5F] text-white p-6 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+      
+      <div id="card1" class="relative w-full md:w-[65%] max-w-sm h-52 rounded-xl overflow-hidden shadow-lg bg-blue-600">
+        
+        <div class="absolute top-5 left-5 w-10 h-7 rounded-sm bg-yellow-400 shadow-inner"></div>
+        
+        <div class="absolute top-4 right-4 px-2 py-1 bg-white rounded text-blue-600 text-[10px] font-semibold uppercase tracking-wider">
+          Visa
+        </div>
+
+        <div class="absolute bottom-14 left-5 text-white flex flex-col">
+        <p class="font-bold text-[0.8rem] text-black hidden card1details">Numéro de la carte:</p>
+        <div class=" text-white font-medium tracking-widest">
+          <p id="card1-number">**** **** **** ****</p>
+        </div>
+        </div>
+       
+        <div class="absolute bottom-4 left-5 right-4 flex justify-between text-white text-xs">
+          <div class="flex flex-col gap-1">
+          <p  class="text-black font-bold text-[0.8rem] hidden card1details">Nom du titulaire:</p>
+          <p id="card1-holder">--</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-black font-bold text-[0.8rem] hidden card1details">Date d'éxpiration:</p>
+            <p id="card1-expiry">--/--</p>
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="flex justify-between items-center w-full">
+        <div class="flex flex-col gap-1">
+          <h2 id="card1-title" class="font-bold text-[16px]">--</h2>
+          <p id="card1-balance">Solde : --</p>
+          <p id="statut1" class="font-bold text-green-600">Statut : --</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <button id="buttondetails1" class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
+            Voir détails
+          </button>
+          <button id="buttonbloquer1" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow ">
+            Bloquer
+          </button>
+          <button id="buttonoppose1" class="rounded-3xl bg-orange-500 px-4 py-2 text-white text-sm shadow">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cardcontainer2" class="rounded-3xl bg-[#324A5F] text-white p-6 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+
+      <div id="card2" class="relative w-[70%] max-w-sm h-40 rounded-xl overflow-hidden shadow-lg bg-gray-700 ">
+        
+        <div class="absolute top-6 right-6 flex items-center">
+          <div class="w-8 h-8 rounded-full bg-red-500"></div>
+          <div class="w-8 h-8 -ml-3 rounded-full bg-yellow-400"></div>
+        </div>
+        
+        <div class="absolute top-5 left-5 w-10 h-7 rounded-sm bg-yellow-400 shadow-inner"></div>
+    
+        <div class="absolute top-4 right-4 px-2 py-1 bg-white rounded text-gray-700 text-[10px] font-semibold uppercase tracking-wider">
+          Mastercard
+        </div>
+        
+        <div class="absolute bottom-14 left-5">
+        <p class="card1details text-blue-600 hidden [0.8rem]">Numéro de la carte</p>
+        <div class=" text-white font-medium tracking-widest">
+          <span id="card2-number">**** **** **** ****</span>
+        </div>
+        </div>
+        
+        <div class="absolute bottom-4 left-5 right-4 flex justify-between text-white text-xs">
+          <div class="flex flex-col gap-1">
+          <p  class="text-blue-600 font-bold text-[0.8rem] hidden card1details">Nom du titulaire:</p>
+          <p id="card2-holder">--</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-blue-600 font-bold text-[0.8rem] hidden card1details">Date d'éxpiration:</p>
+            <p id="card2-expiry">--/--</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center w-full">
+        <div class="flex flex-col gap-1">
+          <h2 id="card2-title" class="font-bold text-[16px]">--</h2>
+          <p id="card2-balance">Solde : --</p>
+          <p id="statut2" class="font-bold text-green-600">Statut : --</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <button id="buttondetails2" class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
+            Voir détails
+          </button>
+          <button id="buttonbloquer2" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
+            Bloquer
+          </button>
+          <button id="buttonoppose2" class="rounded-3xl bg-orange-500 px-4 py-2 text-white text-sm shadow">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div id="plafonds" class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 shadow-lg hidden">
+  <label for="dailyLimit" class="block font-semibold mb-2">
+    Plafond quotidien: <span id="dailyValue" class="text-yellow-400">5000</span> MAD
+  </label>
+  <input 
+    type="range" 
+    id="dailyLimit" 
+    min="0" 
+    max="10000" 
+    step="100" 
+    value="5000"
+    class="w-full accent-yellow-400 cursor-pointer"
+  >
+   </div>
+
+
+    <div id ="confirmation-popup" class="fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center hidden">
+      <div class="confirmation-popup  rounded-3xl bg-gray-300 flex flex-col justify-center items-center border-2 border-blue-700 p-6 ">
+      <div class="flex justify-end items-start w-full">
+      <button id="close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      </div>
+      <div class="text">
+        <p id="Confirmation-text" class="text-black font-bold text-[20px]">text</p>
+      </div>
+
+      <div class="flex justify-center gap-4 w-[80%] mt-4">
+        <button id="oui" class="text-center bg-green-500 border-2 border-white rounded-3xl px-4 py-2">
+          <p class="text-white">Oui</p>
+        </button>
+        <button id="non" class="text-center bg-red-500 border-2 border-white rounded-3xl px-4 py-2">
+          <p class="text-white">Non</p>
+        </button>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  <script src="../js/data.js"></script>
+  <script src="../js/cartes.js"></script>
+</body>
+</html>
